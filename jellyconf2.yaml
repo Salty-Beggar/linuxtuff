@@ -1,0 +1,76 @@
+Chico Buarque:
+  - type: artist
+    Construção:
+      - type: album
+        url: https://music.youtube.com/playlist?list=OLAK5uy_kMGOsY20DbKuLjaZPla8Kw2QfGHo8wxds
+    Minhas Primeiras Gravações:
+      - type: album
+        url: https://music.youtube.com/playlist?list=OLAK5uy_kkN5ICJh6uqDbxvPtGtb-EoZHxb6vBmZg
+    Vida:
+      - type: album
+        url: https://music.youtube.com/playlist?list=OLAK5uy_nFMJlFNPuTBy0vmcaP0TxXtZtupUekoTA
+    Chico Buarque:
+      - type: album
+        url: https://music.youtube.com/playlist?list=OLAK5uy_nFMJlFNPuTBy0vmcaP0TxXtZtupUekoTA
+Machine Girl:
+  - type: artist
+    MG Ultra:
+      - type: album
+        logo: https://yt3.googleusercontent.com/pD1l2ugjpMc49Cg7wJ-DY3tXHW639bSdq4WT360dF65V82FZyPkdqPEPbDXT2oeGr-pRqEVSM3MDcmlN=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_kMGOsY20DbKuLjaZPla8Kw2QfGHo8wxds
+Christopher Larkin:
+  - type: artist
+    Hollow Knight:
+      - type: album
+        logo: https://yt3.ggpht.com/VpPx0Zsitle9lHrB7GzrNITSizTtHIBKEB1tT8onblcBvPmXsStMNK_ivOiyTT7WeySSHthEBg=s1200
+        url: https://music.youtube.com/playlist?list=PLmOldskd2VbL7_t-NE9p6rEboq_v0AHko
+Heaven Pierce Her:
+  - type: artist
+    "Ultrakill: Violence":
+      - type: album
+        logo: https://lh3.googleusercontent.com/XbS2JHAJf6GeW3ebwA9TxQi1a_xNzFzPDOlrQd8MTGxJ0nF2v9orUW5dt07fjGE00T8aXLX9hTcEVqJ9=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_kL5AHROFaW8AkZZw78Y6yGq5pmFulH3gY
+    "Ultrakill: Infinite Hyperdeath":
+      - type: album
+        logo: https://yt3.googleusercontent.com/v9a2Ik7Vi5R3Cud9vDSO4sfCyz05-GbafbOESBL7iPvEQqX-bLvlqL5O8R80Irh5fbXEy6rRPB9v86c6=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_m1onq9W3PpE5Bo42ynuxEnHTknHrPbUIs
+    "Ultrakill: Encores I":
+      - type: album
+        logo: https://yt3.googleusercontent.com/c0fQGyYrHgxPLyQJBtUPQpAPclfSvur4vvAaNU4wpvHhq8O3gjt9Zz2PO3_9nlrXLlyKfsR-y6wNVHIr=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_knQEC6_Nk7hV8G2-vlQaKucvqqfqh5Lko
+Disasterpeace:
+  - type: artist
+    Hyper Light Fragments:
+      - type: album
+        logo: https://yt3.googleusercontent.com/j0PavBg2IIlthWAUlAmUYi6jHvq9b0tc61v3hlTviXEa_0UKKSv_g9dLyVc01IRbRkx5n8ythJ1osGdb=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_lMZu_1K_BT14sjWid9v7MKcd_ns26Og10
+Tunic:
+  - type: album
+    logo: https://yt3.googleusercontent.com/P-8iJpOTgS_Yqg7pmTPro_JYq3z5tibnhr_ROVzQt6XWZ5eMxhSoM40X08tNwhHh-WNQHqSrG0l9EpcJ=w544-h544-l90-rj
+    url: https://music.youtube.com/playlist?list=OLAK5uy_nGxOPth7tfioTBxSgVGQGOh1ttHJRk42U
+Toby Fox:
+  - type: artist
+    Undertale:
+      - type: album
+        logo: https://yt3.googleusercontent.com/JAgRmPaAvWo3jlLFLxQYeiCgciUYX_sUh3jwx0u7klHju3Ur4w3PTYT8qlzS3IW4r07dBSDxvSWypLY=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_ljXkQlhVlWyV7BxSxMMzgOLbzYS_-JPt4
+    "Deltarune: Chapter 1":
+      - type: album
+        logo: https://yt3.googleusercontent.com/UN7YGUVipHPbdcq1nqyV0tKG1wztarrfPO_iZZH0KDqhQnCP1iUUhM1f1m8asLy3EFsjJ9gt-xP9Okw=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_kidGzGmzCUSJK1LAtIh7ngZwRF9MT3qjE
+    "Deltarune: Chapter 2":
+      - type: album
+        logo: https://yt3.googleusercontent.com/kywGuYE6yM34m2ImYIrsSxA3QigB_ElXncqXREGPrmO-GPQOsqDxsDn_IfDd2D_X50AesSMgsdfaAn8=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_m-rr6K-H8nfmI3MdSzCRpQw0gxDeG5jzk
+    "Deltarune: Chapter 3+4":
+      - type: album
+        logo: https://yt3.googleusercontent.com/g1LUl-xdrAZ4UCblo6d9VEbOZXTxGawlvr7nRb3w3FjqRAWrzcPCjaTTn2G8waDN7s_SqXQyvZ8iXpzI=w544-h544-l90-rj
+        url: https://music.youtube.com/playlist?list=OLAK5uy_k-fz2U2mTfcN9R63A7DyL6V_BDUOLpyiE&si=9NOpNIswNl8_9TcJ
+Pizza Tower:
+  - type: album
+    logo: https://yt3.googleusercontent.com/Zk5fQ-_CualJ6TfuCEz56wq498Oe5lp_syODLnT-WH3U5XcypzCX7kZ_haPLcNwvl6DuumZa6cWCnZ0=w544-h544-l90-rj
+    url: https://music.youtube.com/playlist?list=OLAK5uy_nBHgqqZ183JBw9_VrlJGQGs1IctCDCm74&si=vGOd0-e8wOb6VpJh
+"Pizza Tower: Bonus":
+  - type: album
+    logo: https://yt3.googleusercontent.com/lC_M0KtEqyubozDhyyHSWOTG9oJrC3mWYtUhqNTbmigi4tGYNjuqqdpOzqokeVuXm-d9ZItDzmeK8oE8Jw=w544-h544-l90-rj
+    url: https://music.youtube.com/playlist?list=OLAK5uy_nd6_RaD6hoyiWja1A3-JyMwjszQ4UFvto&si=AccHDX_cTLC_oPb1

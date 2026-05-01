@@ -5,9 +5,9 @@ import time
 import subprocess
 import sys
 
+interval = (float) (sys.argv[1])
 while True:
     wallpaperDir = os.getenv("SWITCHING_WALLPAPER_DIR")
-    interval = (float) (sys.argv[1])
 
     os.chdir(wallpaperDir)
     files = os.listdir(wallpaperDir)
