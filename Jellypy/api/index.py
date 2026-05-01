@@ -1,7 +1,16 @@
-from flask import Flask
+from flask import Flask, make_response, request
+import yaml, os, json, jellyconf
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+@app.get("/jellyconf")
+def getJellyconf():
+    return jellyconf.get()
+
+@app.post("/jellyconf")
+def addJellyconf():
+    return jellyconf.add()
+
+@app.put("/jellyconf")
+def updateJellyconf():
+    return request.json
