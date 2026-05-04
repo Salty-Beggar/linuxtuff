@@ -2,7 +2,7 @@
 
 import sys, subprocess, os, os.path, yaml;
 
-onlyImage = '--image' in sys.argv;
+onlyImage = '--image' in sys.argv
 jellyconfFile = sys.argv[1]
 with open(jellyconfFile, 'r') as file:
     config = yaml.safe_load(file)

@@ -13,4 +13,8 @@ def addJellyconf():
 
 @app.put("/jellyconf")
 def updateJellyconf():
-    return request.json
+    return jellyconf.update()
+
+@app.post('/jellyconf/download')
+def downloadJellyconf():
+    return jellyconf.download()
