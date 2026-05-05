@@ -1,0 +1,4 @@
+- Possibilitar a adição de novas pastas, e a subsequente submissão de adições
+- Permitir que o administrador aprove adições
+- Possibilitar login
+- Configurar o Docker

@@ -5,7 +5,7 @@ export function Body() {
     const [jellyconf, setJellyconf]: any = useState([]);
     const [dataIsLoaded, setDataIsLoaded] = useState(false);
 
-    // useEffect(() => {
+    if (!dataIsLoaded) {
         fetch("/api/jellyconf", {
             method: "GET"
         })
@@ -14,7 +14,7 @@ export function Body() {
             setJellyconf(json);
             setDataIsLoaded(true);
         })
-    // });
+    }
 
     if (!dataIsLoaded) {
         return (
@@ -96,6 +96,9 @@ function FolderList(props: {jellyconf}) {
 }
 
 function Folder(props: {title: string, img: string, url: string, hierarchy: number, isAddition: boolean}) {
+    const [title, setTitle] = useState(props.title);
+    const [img, setImg] = useState(props.img);
+    const [url, setUrl] = useState(props.url);
     const style: CSSProperties = {
         marginLeft: `${props.hierarchy*30}px`,
         borderRadius: 10,
@@ -119,21 +122,25 @@ function Folder(props: {title: string, img: string, url: string, hierarchy: numb
     return (
         <>
             <li style={style}>
-                <h1 style={titleStyle}>{props.title}
-                    <img src={props.img} alt={props.title} style={imgStyle} />
+                <h1 style={titleStyle}>{title}
+                    <img src={img} alt={title} style={imgStyle} />
                 </h1>
                 {/* <div>URL da imagem: <br/>{props.img}</div>
                 <div>URL da playlist: <br/> {props.url}</div> */}
-                <FolderField name={'URL da imagem:'} initialValue={props.img} editable={true} formInfo={
+                <FolderField name={'URL da imagem:'} initialValue={img} editable={true} formInfo={
                     {
                         type: 'text'
                     }
-                } />
-                <FolderField name={'URL da playlist:'} initialValue={props.url} editable={true} formInfo={
+                } 
+                onEdit={(newValue) => { setImg(newValue) }}
+                />
+                <FolderField name={'URL da playlist:'} initialValue={url} editable={true} formInfo={
                     {
                         type: 'text'
                     }
-                } />
+                }
+                onEdit={(newValue) => { setUrl(newValue) }}
+                />
             </li>
         </>
     );
@@ -175,9 +182,10 @@ type FormInfo = {
 }
 
 let folderIndex = 0;
-function FolderField(props: {name: string, initialValue: string, editable: boolean, formInfo: FormInfo}) {
+function FolderField(props: {name: string, initialValue: string, editable: boolean, formInfo: FormInfo, onEdit: (newValue: string) => void}) {
     const [isEditing, setIsEditing] = useState(false);
     const [value, setValue] = useState(props.initialValue);
+
     const labelMarkup = (
         <>
             <label>{props.name}</label>
@@ -194,6 +202,7 @@ function FolderField(props: {name: string, initialValue: string, editable: boole
     if (props.editable) {
         function startEdit() {
             setIsEditing(true)
+
         }
         const buttonStyle: CSSProperties = {
             backgroundColor: 'orange',
@@ -211,14 +220,17 @@ function FolderField(props: {name: string, initialValue: string, editable: boole
             </button>
         </>);
     }
+    let curInputID: string;
     if (isEditing) {
-        const curInputID = `Input_${folderIndex++}_${props.name}`;
+        curInputID = `Input_${folderIndex++}_${props.name}`;
         function stopEdit() {
             // setValue(document.getElementById(curInputID).value)
             // @ts-ignore
-            const inputDiv: HTMLInputElement = document.getElementById(curInputID).value;
+            const inputDiv: HTMLInputElement = document.getElementById(curInputID);
+            console.log(inputDiv);
             setValue(inputDiv.value)
             setIsEditing(false)
+            props.onEdit(inputDiv.value);
         }
         if (props.formInfo.type == 'text') {
             textMarkup = (
@@ -230,6 +242,7 @@ function FolderField(props: {name: string, initialValue: string, editable: boole
             textMarkup = (
                 <>
                     <select>
+                        {/* @ts-expect-error */}
                         {props.formInfo.selectOptions.map(
                             (a) => (<><option defaultValue={a.value}>{a.name}</option></>)
                         )}
@@ -238,6 +251,13 @@ function FolderField(props: {name: string, initialValue: string, editable: boole
             );
         }
     }
+    useEffect(() => {
+        if (isEditing) {
+            // @ts-ignore
+            const inputDiv: HTMLInputElement = document.getElementById(curInputID);
+            inputDiv.focus();
+        }
+    });
     return (
         <>
             <div>
