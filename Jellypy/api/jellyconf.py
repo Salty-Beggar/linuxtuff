@@ -65,7 +65,16 @@ def _update(newConf, modConf):
             if (key in newConf): newConf[key] = modConf[key]
         else:
             if (key in newConf):
-                _update(newConf[key], modConf[key])
+                _update2(newConf[key], modConf[key])
+
+def _update2(newConf, modConf):
+    newConf = newConf[0]
+    for key, value in modConf.items():
+        if (key in JellyconfAttribute.ATTRIBUTES):
+            if (key in newConf): newConf[key] = modConf[key]
+        else:
+            if (key in newConf):
+                _update2(newConf[key], modConf[key])
 
 
 def update():

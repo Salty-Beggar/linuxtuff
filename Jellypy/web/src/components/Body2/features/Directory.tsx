@@ -1,4 +1,4 @@
-import { useContext, type CSSProperties } from "react";
+import { useContext, useState, type CSSProperties } from "react";
 import type { Directory } from "../../../types/jellyconf";
 import { Context } from "../Body";
 
@@ -6,7 +6,13 @@ export default function Directory({}: {}) {
     const { jellyconf, setJellyconf } = useContext(Context);
     console.log(jellyconf);
     return (
-        <div>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '10px'
+        }}>
+            <ButtonDownload />
+            <ButtonEdit />
             <ButtonAdd />
             <FolderList hierarchy={0} directories={jellyconf} parent={'root'} />
         </div>
@@ -197,7 +203,9 @@ function FolderAdd({ hierarchy, directory }:{ hierarchy: number, directory: Dire
 
 function Button({ onClick, color, text }: {onClick: () => void, color: string, text: string}) {
     const style: CSSProperties = {
-        backgroundColor: color
+        backgroundColor: color,
+        borderRadius: '5px',
+        padding: '5px'
     }
 
     return (
@@ -208,7 +216,7 @@ function Button({ onClick, color, text }: {onClick: () => void, color: string, t
 }
 
 interface Body {
-    [key: string]: Body|string
+    [key: string]: Body|string|boolean
 }
 
 function ButtonAdd() {
@@ -222,7 +230,7 @@ function ButtonAdd() {
             const prevBodyDir = curBodyDir;
             prevBodyDir[dir.title] = {};
             curBodyDir = prevBodyDir[dir.title] as Body;
-            curBodyDir['downloaded'] = dir.downloaded ? '1' : '0';
+            curBodyDir['downloaded'] = dir.downloaded;
             curBodyDir['type'] = dir.type;
             if (dir.logo) curBodyDir['logo'] = dir.logo;
             if (dir.url) curBodyDir['url'] = dir.url;
@@ -232,16 +240,59 @@ function ButtonAdd() {
         jellyconf.forEach(_map);
         fetch('/api/jellyconf', {
             method: 'post',
-            body: JSON.stringify(jellyconfBody)
+            body: JSON.stringify(jellyconfBody),
+            headers: {
+                'Content-Type': 'application/json'
+            },
         });
     }
     return (<Button color="yellowgreen" text='Submeter adições' onClick={onClick}/>);
 }
 
 function ButtonEdit() {
-
+    const { jellyconf } = useContext(Context);
+    function onClick() {
+        let jellyconfBody: Body = {
+            
+        };
+        let curBodyDir = jellyconfBody;
+        const _map = (dir: Directory) => {
+            const prevBodyDir = curBodyDir;
+            prevBodyDir[dir.title] = {};
+            curBodyDir = prevBodyDir[dir.title] as Body;
+            curBodyDir['downloaded'] = dir.downloaded;
+            curBodyDir['type'] = dir.type;
+            if (dir.logo) curBodyDir['logo'] = dir.logo;
+            if (dir.url) curBodyDir['url'] = dir.url;
+            dir.items?.forEach(_map);
+            curBodyDir = prevBodyDir;
+        }
+        jellyconf.forEach(_map);
+        fetch('/api/jellyconf', {
+            method: 'put',
+            body: JSON.stringify(jellyconfBody),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+    }
+    return (<Button color="orange" text='Submeter edições' onClick={onClick}/>);
 }
 
 function ButtonDownload() {
-
+    const [isDownloading, setIsDownloading] = useState(false);
+    function onClick() {
+        if (isDownloading) return;
+        setIsDownloading(true);
+        fetch('/api/jellyconf/download', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        }).
+        then(() => {
+            setIsDownloading(false)
+        });
+    }
+    return (<Button color="blue" text={isDownloading ? 'Fazendo download...' : 'Fazer download'} onClick={onClick}/>);
 }

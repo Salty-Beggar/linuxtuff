@@ -1,5 +1,5 @@
-path: "/home/salty-beggar/Projects/linuxtuff/Test"
+path: "/srv/shared"
 jellyconfName: 'jellyconf'
 cookies:
   active: True
-  file: "/home/salty-beggar/Homelab/cookies.txt"
+  file: "./cookies.txt"

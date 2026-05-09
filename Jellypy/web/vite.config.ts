@@ -7,11 +7,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'http://api:5000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Use this if your backend routes don't have '/api'
       }
     },
+    // headers: {
+    //   "Content-Type": 'application/json'
+    // }
     // headers: {
     //   "Access-Control-Allow-Origin": 'http://localhost:5000'
     // }

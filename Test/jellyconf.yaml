@@ -1,3 +1,6 @@
+'1778339640267':
+- downloaded: false
+  type: "\xC1lbum"
 Heaven Pierce Her:
 - MG Ultra:
   - logo: https://yt3.googleusercontent.com/pD1l2ugjpMc49Cg7wJ-DY3tXHW639bSdq4WT360dF65V82FZyPkdqPEPbDXT2oeGr-pRqEVSM3MDcmlN=w544-h544-l90-rj
@@ -9,13 +12,22 @@ Heaven Pierce Her:
   type: artist
 Heaven Pierce Her 2:
 - 'Ultrakill: Encores I':
-  - downloaded: false
+  - downloaded: '1'
     type: album
   'Ultrakill: Encores II':
-  - downloaded: false
+  - downloaded: '1'
     type: album
-  downloaded: false
+  downloaded: '1'
   type: artist
+Man:
+- Man 2:
+  - downloaded: '0'
+    type: album
+  downloaded: '1'
+  type: album
 Pizza Tower:
-- logo: https://yt3.googleusercontent.com/Zk5fQ-_CualJ6TfuCEz56wq498Oe5lp_syODLnT-WH3U5XcypzCX7kZ_haPLcNwvl6DuumZa6cWCnZ0=w544-h544-l90-rj
+- '1778339638107':
+  - downloaded: '1'
+    type: album
+  logo: https://yt3.googleusercontent.com/Zk5fQ-_CualJ6TfuCEz56wq498Oe5lp_syODLnT-WH3U5XcypzCX7kZ_haPLcNwvl6DuumZa6cWCnZ0=w544-h544-l90-rj
   type: album
