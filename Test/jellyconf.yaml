@@ -7,6 +7,15 @@ Heaven Pierce Her:
     type: album
     url: https://music.youtube.com/playlist?list=OLAK5uy_knQEC6_Nk7hV8G2-vlQaKucvqqfqh5Lko
   type: artist
+Heaven Pierce Her 2:
+- 'Ultrakill: Encores I':
+  - downloaded: false
+    type: album
+  'Ultrakill: Encores II':
+  - downloaded: false
+    type: album
+  downloaded: false
+  type: artist
 Pizza Tower:
 - logo: https://yt3.googleusercontent.com/Zk5fQ-_CualJ6TfuCEz56wq498Oe5lp_syODLnT-WH3U5XcypzCX7kZ_haPLcNwvl6DuumZa6cWCnZ0=w544-h544-l90-rj
   type: album

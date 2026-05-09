@@ -32,7 +32,6 @@ def fetchJellyconfResponse():
                 if (subKey in JellyconfAttribute.ATTRIBUTES):
                     newResponse[subKey] = subValue
                 else:
-                    print('====', subValue[0])
                     newResponse['items'] = _buildResponse(value[0])
             responseArr.append(newResponse)
         return responseArr
@@ -49,11 +48,11 @@ def dumpToJellyconf(newJellyconf):
         yaml.dump(newJellyconf, jellyconfFile)
 
 class JellyconfAttribute:
-    ATTRIBUTES = ['url', 'logo', 'type', 'status']
+    ATTRIBUTES = ['url', 'logo', 'type', 'downloaded']
     URL = 'url'
     LOGO = 'logo'
     TYPE = 'type'
-    STATUS = 'status'
+    STATUS = 'downloaded'
     STATUS_DOWNLOADED = 1
     STATUS_NOTDOWNLOADED = 2
     STATUS_REMOVE = 3

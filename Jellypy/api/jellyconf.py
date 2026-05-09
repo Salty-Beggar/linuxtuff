@@ -31,7 +31,7 @@ def _add(newConf, addConf, isAdd):
             if (isAdd): newConf[key] = addConf[key]
         else:
             if (not key in newConf):
-                newConf[key] = {'downloaded': False}
+                newConf[key] = [{'downloaded': False}]
                 _add2(newConf[key], addConf[key], True)
             else:
                 _add2(newConf[key], addConf[key], isAdd)
@@ -43,7 +43,7 @@ def _add2(newConf, addConf, isAdd):
             if (isAdd): newConf[key] = addConf[key]
         else:
             if (not key in newConf):
-                newConf[key] = {'downloaded': False}
+                newConf[key] = [{'downloaded': False}]
                 _add2(newConf[key], addConf[key], True)
             else:
                 _add2(newConf[key], addConf[key], isAdd)

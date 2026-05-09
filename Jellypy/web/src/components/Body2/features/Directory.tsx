@@ -230,7 +230,6 @@ function ButtonAdd() {
             curBodyDir = prevBodyDir;
         }
         jellyconf.forEach(_map);
-        console.log(jellyconfBody);
         fetch('/api/jellyconf', {
             method: 'post',
             body: JSON.stringify(jellyconfBody)
