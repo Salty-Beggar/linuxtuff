@@ -53,8 +53,8 @@ class JellyconfAttribute:
     LOGO = 'logo'
     TYPE = 'type'
     STATUS = 'downloaded'
-    STATUS_DOWNLOADED = 1
-    STATUS_NOTDOWNLOADED = 2
+    STATUS_DOWNLOADED = True
+    STATUS_NOTDOWNLOADED = False
     STATUS_REMOVE = 3
 
 def download():
@@ -63,8 +63,9 @@ def download():
         type = 'root'
         jellyconf = fetchJellyconf()
         def _download(namespace: dict, namespaceDir):
-            doDownload: bool = ((not JellyconfAttribute.STATUS in namespace)
-                or namespace[JellyconfAttribute.STATUS] == JellyconfAttribute.STATUS_NOTDOWNLOADED)
+            doDownload: bool = True
+            # doDownload: bool = ((not JellyconfAttribute.STATUS in namespace)
+            #     or namespace[JellyconfAttribute.STATUS] == JellyconfAttribute.STATUS_NOTDOWNLOADED)
             if (JellyconfAttribute.TYPE in namespace): type = namespace[JellyconfAttribute.TYPE]
             os.chdir(namespaceDir)
             for key, value in namespace.items():
