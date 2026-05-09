@@ -7,6 +7,7 @@ export default function Directory({}: {}) {
     console.log(jellyconf);
     return (
         <div>
+            <ButtonAdd />
             <FolderList hierarchy={0} directories={jellyconf} parent={'root'} />
         </div>
     );
@@ -192,4 +193,56 @@ function FolderAdd({ hierarchy, directory }:{ hierarchy: number, directory: Dire
             </button>
         </>
     );
+}
+
+function Button({ onClick, color, text }: {onClick: () => void, color: string, text: string}) {
+    const style: CSSProperties = {
+        backgroundColor: color
+    }
+
+    return (
+        <button style={style} onClick={onClick}>
+            {text}
+        </button>
+    );
+}
+
+interface Body {
+    [key: string]: Body|string
+}
+
+function ButtonAdd() {
+    const { jellyconf } = useContext(Context);
+    function onClick() {
+        let jellyconfBody: Body = {
+            
+        };
+        let curBodyDir = jellyconfBody;
+        const _map = (dir: Directory) => {
+            const prevBodyDir = curBodyDir;
+            prevBodyDir[dir.title] = {};
+            curBodyDir = prevBodyDir[dir.title] as Body;
+            curBodyDir['downloaded'] = dir.downloaded ? '1' : '0';
+            curBodyDir['type'] = dir.type;
+            if (dir.logo) curBodyDir['logo'] = dir.logo;
+            if (dir.url) curBodyDir['url'] = dir.url;
+            dir.items?.forEach(_map);
+            curBodyDir = prevBodyDir;
+        }
+        jellyconf.forEach(_map);
+        console.log(jellyconfBody);
+        fetch('/api/jellyconf', {
+            method: 'post',
+            body: JSON.stringify(jellyconfBody)
+        });
+    }
+    return (<Button color="yellowgreen" text='Submeter adições' onClick={onClick}/>);
+}
+
+function ButtonEdit() {
+
+}
+
+function ButtonDownload() {
+
 }

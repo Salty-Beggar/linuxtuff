@@ -31,10 +31,10 @@ def _add(newConf, addConf, isAdd):
             if (isAdd): newConf[key] = addConf[key]
         else:
             if (not key in newConf):
-                newConf[key] = {'downloaded': False}
-                _add(newConf[key], addConf[key], True)
+                newConf[0][key] = {'downloaded': False}
+                _add(newConf[0][key], addConf[key], True)
             else:
-                _add(newConf[key], addConf[key], isAdd)
+                _add(newConf[0][key], addConf[key], isAdd)
 
 def add():
     jellyconf = jellyconfdownload.fetchJellyconf()
